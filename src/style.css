@@ -57,3 +57,11 @@ h4 {
   padding-top: 10px;
   color: white;
 }
+.gitHubLink {
+  color: #fc6f81;
+  text-decoration: none;
+}
+.gitHubLink:hover {
+  color: white;
+  text-decoration: none;
+}
