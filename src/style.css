@@ -1,0 +1,59 @@
+.container {
+  max-width: 50%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    179.4deg,
+    rgb(253, 240, 233) 2.2%,
+    rgb(255, 194, 203) 96.2%
+  );
+}
+.form-control::placeholder {
+  color: #ffc2cb;
+}
+.form-control:focus {
+  border-color: #ffc2cb;
+  box-shadow: 0 0 0 0.2rem #fedadb;
+}
+.searchCityButton {
+  background-color: white;
+  border-color: white;
+  color: #ffc2cb;
+}
+.searchCityButton:hover {
+  background-color: #ffc7ce;
+  border-color: #ffc7ce;
+  color: white;
+}
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 15px;
+}
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+h3,
+h4 {
+  text-align: center;
+  font-size: 30px;
+}
+.sun-time {
+  font-size: 25px;
+}
+.weeklyTemperatures {
+  text-align: center;
+}
+.weeklyTemperaturesIcons {
+  text-align: center;
+  color: white;
+}
+.weekDays {
+  text-align: center;
+}
+.author {
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+}
