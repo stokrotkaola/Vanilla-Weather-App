@@ -52,6 +52,9 @@ h4 {
 .weekDays {
   text-align: center;
 }
+.weatherDescription {
+  font-size: 15px;
+}
 .author {
   text-align: center;
   padding-top: 10px;
