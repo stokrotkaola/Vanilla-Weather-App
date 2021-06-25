@@ -60,7 +60,7 @@ img {
   text-decoration: none;
 }
 .divider {
-  color: white;
+  color: black;
 }
 .sun-time {
   font-size: 25px;
@@ -93,4 +93,11 @@ img {
 }
 .todaysTemp {
   font-size: 40px;
+}
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  color: black;
 }

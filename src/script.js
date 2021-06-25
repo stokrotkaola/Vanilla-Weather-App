@@ -53,6 +53,8 @@ function showCurrentWeather(response) {
   let h3 = document.querySelector("#todaysTemperature");
   h3.innerHTML = `${todaysTemperature}`;
 
+  celsiusTemperature = Math.round(response.data.main.temp);
+
   //wind speed
 
   let windSpeed = response.data.wind.speed;
@@ -90,3 +92,28 @@ function showCurrentWeather(response) {
 }
 
 // Converting to Fahrenheit and Celsius
+
+function displayFahrenTemperature(event) {
+  event.preventDefault();
+  celsTemperature.classList.remove("active");
+  fahrenTemperature.classList.add("active");
+  let temperatureElement = document.querySelector("#todaysTemperature");
+  let temperature = temperatureElement.innerHTML;
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+}
+
+function displayCelsTemperature(event) {
+  event.preventDefault();
+  celsTemperature.classList.add("active");
+  fahrenTemperature.classList.remove("active");
+  let temperatureElement = document.querySelector("#todaysTemperature");
+  temperatureElement.innerHTML = celsiusTemperature;
+}
+
+let celsiusTemperature = null;
+
+let fahrenTemperature = document.querySelector("#fahren-unit");
+fahrenTemperature.addEventListener("click", displayFahrenTemperature);
+
+let celsTemperature = document.querySelector("#cels-unit");
+celsTemperature.addEventListener("click", displayCelsTemperature);
