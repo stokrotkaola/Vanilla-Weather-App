@@ -1,5 +1,4 @@
 //date and time
-
 let now = new Date();
 
 let days = [
@@ -82,3 +81,5 @@ function showCurrentWeather(response) {
   let inDetails = document.querySelector("#cloudyOrNot");
   inDetails.innerHTML = `${weatherInDetails}`;
 }
+
+// Converting to Fahrenheit and Celsius

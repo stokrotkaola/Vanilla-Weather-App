@@ -39,8 +39,14 @@ h4 {
   text-align: center;
   font-size: 30px;
 }
+h3 {
+  padding-left: 45px;
+}
 .tempWithTempConverter {
   font-size: 15px;
+  position: relative;
+  top: -20px;
+  left: 5px;
 }
 .tempConverter {
   color: #fc6f81;
@@ -78,4 +84,7 @@ h4 {
 .gitHubLink:hover {
   color: white;
   text-decoration: none;
+}
+.todaysTemp {
+  font-size: 40px;
 }
