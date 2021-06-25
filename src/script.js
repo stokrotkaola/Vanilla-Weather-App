@@ -50,7 +50,7 @@ form.addEventListener("submit", pointCity);
 function showCurrentWeather(response) {
   let todaysTemperature = Math.round(response.data.main.temp);
 
-  let h3 = document.querySelector("h3");
+  let h3 = document.querySelector("#todaysTemperature");
   h3.innerHTML = `${todaysTemperature}`;
 
   //wind speed
@@ -80,6 +80,13 @@ function showCurrentWeather(response) {
 
   let inDetails = document.querySelector("#cloudyOrNot");
   inDetails.innerHTML = `${weatherInDetails}`;
+
+  //weather icon
+  let weatherIcon = document.querySelector("#weatherIcon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 // Converting to Fahrenheit and Celsius

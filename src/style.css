@@ -34,14 +34,17 @@ h2 {
   font-size: 30px;
   font-weight: bold;
 }
-h3,
-h4 {
+h3 {
   text-align: center;
   font-size: 30px;
+  padding-left: 40px;
 }
-h3 {
-  padding-left: 45px;
+
+img {
+  display: block;
+  margin: 0 auto;
 }
+
 .tempWithTempConverter {
   font-size: 15px;
   position: relative;
@@ -49,12 +52,15 @@ h3 {
   left: 5px;
 }
 .tempConverter {
-  color: #fc6f81;
+  color: white;
   text-decoration: none;
 }
 .tempConverter:hover {
-  color: white;
+  color: #fc6f81;
   text-decoration: none;
+}
+.divider {
+  color: white;
 }
 .sun-time {
   font-size: 25px;
@@ -78,11 +84,11 @@ h3 {
   color: white;
 }
 .gitHubLink {
-  color: #fc6f81;
+  color: white;
   text-decoration: none;
 }
 .gitHubLink:hover {
-  color: white;
+  color: #fc6f81;
   text-decoration: none;
 }
 .todaysTemp {

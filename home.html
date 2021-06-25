@@ -50,17 +50,24 @@
       </form>
       <br />
       <h1 id="todaysDate">SATURDAY</h1>
+
       <h2>Aberystwyth</h2>
 
-      <h3 id="todaysTemperature">
-        <span class="todaysTemp">12</span
+      <h3>
+        <span id="todaysTemperature" class="todaysTemp">12</span
         ><span class="tempWithTempConverter"
-          ><a href="#" class="tempConverter" id="tempCels">°C</a> |
+          ><a href="#" class="tempConverter" id="tempCels">°C</a>
+          <span class="divider">|</span>
           <a href="#" class="tempConverter" id="tempFahren">°F</a></span
         >
       </h3>
 
-      <h4>☀</h4>
+      <img
+        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+        alt=""
+        width="80px"
+        id="weatherIcon"
+      />
       <br />
 
       <div class="row d-flex justify-content-center weeklyTemperatures">
