@@ -39,6 +39,17 @@ h4 {
   text-align: center;
   font-size: 30px;
 }
+.tempWithTempConverter {
+  font-size: 15px;
+}
+.tempConverter {
+  color: #fc6f81;
+  text-decoration: none;
+}
+.tempConverter:hover {
+  color: white;
+  text-decoration: none;
+}
 .sun-time {
   font-size: 25px;
 }

@@ -13,7 +13,11 @@ let days = [
 ];
 
 let day = days[now.getDay()];
+
 let hour = now.getHours();
+if (hour < 10) {
+  hour = `0${hour}`;
+}
 
 let minutes = now.getMinutes();
 if (minutes < 10) {
@@ -40,11 +44,41 @@ function pointCity(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", pointCity);
 
-//weather conditions
+//WEATHER CONDITIONS
+
+//temperature
 
 function showCurrentWeather(response) {
   let todaysTemperature = Math.round(response.data.main.temp);
 
   let h3 = document.querySelector("h3");
-  h3.innerHTML = `${todaysTemperature}°C`;
+  h3.innerHTML = `${todaysTemperature}`;
+
+  //wind speed
+
+  let windSpeed = response.data.wind.speed;
+
+  let speedWind = document.querySelector("#windSpeed");
+  speedWind.innerHTML = `${windSpeed}mps`;
+
+  //humidity
+
+  let humidity = response.data.main.humidity;
+
+  let humidityy = document.querySelector("#humidity");
+  humidityy.innerHTML = `${humidity}%`;
+
+  //feels like
+
+  let humanPerception = Math.round(response.data.main.feels_like);
+
+  let feelsLike = document.querySelector("#feelsLike");
+  feelsLike.innerHTML = `${humanPerception}°C`;
+
+  //weather derscription - cloudy, sunny etc.
+
+  let weatherInDetails = response.data.weather[0].main;
+
+  let inDetails = document.querySelector("#cloudyOrNot");
+  inDetails.innerHTML = `${weatherInDetails}`;
 }
