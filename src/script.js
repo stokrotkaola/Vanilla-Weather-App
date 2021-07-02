@@ -132,7 +132,7 @@ function showCurrentWeather(response) {
   let weatherIcon = document.querySelector("#weatherIcon");
   weatherIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
   getForecast(response.data.coord);
