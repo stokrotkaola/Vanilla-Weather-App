@@ -1,4 +1,3 @@
-//date and time
 let now = new Date();
 
 let days = [
@@ -26,8 +25,6 @@ if (minutes < 10) {
 let currentDate = document.querySelector("#todaysDate");
 currentDate.innerHTML = `${day}, ${hour}:${minutes}`;
 
-//pointing city
-
 function pointCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
@@ -46,33 +43,21 @@ form.addEventListener("submit", pointCity);
 //displayForecast function
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
 
-  let days = ["SUN", "MON", "TUE", "WED", "THU"];
-
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML = ` <div class="row d-flex justify-content-center weeklyTemperatures">
-          <span class="col-2">13°C</span>
-          <span class="col-2">14°C</span>
-          <span class="col-2">13°C</span>
-          <span class="col-2">15°C</span>
-          <span class="col-2">12°C</span>
+          <span class="col-2">${forecastDay.temp.max}°C</span>
         </div>
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
-          <span class="col-2">☀</span>
-          <span class="col-2">☀</span>
-          <span class="col-2">☀</span>
-          <span class="col-2">☀</span>
-          <span class="col-2">☀</span>
+          <span class="col-2"><img src="https://openweathermap.org/img/wn/${forecastDay.data.weather[0].icon}@2x.png" width=50px></img></span>
         </div>
         <div class="row d-flex justify-content-center weekDays">
-          <span class="col-2">SUN</span>
-          <span class="col-2">MON</span>
-          <span class="col-2">TUE</span>
-          <span class="col-2">WED</span>
-          <span class="col-2">THU</span>
+          <span class="col-2">${forecastDay.dt}</span>
         </div>`;
   });
 
@@ -84,13 +69,10 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "58b6c46461e693e538a4d455496c8ce6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
-//WEATHER CONDITIONS
-
-//temperature
 
 function showCurrentWeather(response) {
   let todaysTemperature = Math.round(response.data.main.temp);
@@ -100,35 +82,26 @@ function showCurrentWeather(response) {
 
   celsiusTemperature = Math.round(response.data.main.temp);
 
-  //wind speed
-
   let windSpeed = response.data.wind.speed;
 
   let speedWind = document.querySelector("#windSpeed");
   speedWind.innerHTML = `${windSpeed}mps`;
-
-  //humidity
 
   let humidity = response.data.main.humidity;
 
   let humidityy = document.querySelector("#humidity");
   humidityy.innerHTML = `${humidity}%`;
 
-  //feels like
-
   let humanPerception = Math.round(response.data.main.feels_like);
 
   let feelsLike = document.querySelector("#feelsLike");
   feelsLike.innerHTML = `${humanPerception}°C`;
-
-  //weather derscription - cloudy, sunny etc.
 
   let weatherInDetails = response.data.weather[0].main;
 
   let inDetails = document.querySelector("#cloudyOrNot");
   inDetails.innerHTML = `${weatherInDetails}`;
 
-  //weather icon
   let weatherIcon = document.querySelector("#weatherIcon");
   weatherIcon.setAttribute(
     "src",
@@ -137,8 +110,6 @@ function showCurrentWeather(response) {
 
   getForecast(response.data.coord);
 }
-
-// Converting to Fahrenheit and Celsius
 
 function displayFahrenTemperature(event) {
   event.preventDefault();
