@@ -43,6 +43,51 @@ function pointCity(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", pointCity);
 
+//displayForecast function
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = "";
+
+  let days = ["SUN", "MON", "TUE", "WED", "THU"];
+
+  days.forEach(function (day) {
+    forecastHTML = ` <div class="row d-flex justify-content-center weeklyTemperatures">
+          <span class="col-2">13°C</span>
+          <span class="col-2">14°C</span>
+          <span class="col-2">13°C</span>
+          <span class="col-2">15°C</span>
+          <span class="col-2">12°C</span>
+        </div>
+        <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
+          <span class="col-2">☀</span>
+          <span class="col-2">☀</span>
+          <span class="col-2">☀</span>
+          <span class="col-2">☀</span>
+          <span class="col-2">☀</span>
+        </div>
+        <div class="row d-flex justify-content-center weekDays">
+          <span class="col-2">SUN</span>
+          <span class="col-2">MON</span>
+          <span class="col-2">TUE</span>
+          <span class="col-2">WED</span>
+          <span class="col-2">THU</span>
+        </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+//forecast coordinates
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "58b6c46461e693e538a4d455496c8ce6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 //WEATHER CONDITIONS
 
 //temperature
@@ -89,6 +134,8 @@ function showCurrentWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 // Converting to Fahrenheit and Celsius
@@ -117,3 +164,5 @@ fahrenTemperature.addEventListener("click", displayFahrenTemperature);
 
 let celsTemperature = document.querySelector("#cels-unit");
 celsTemperature.addEventListener("click", displayCelsTemperature);
+
+displayForecast();
