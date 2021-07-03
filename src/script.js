@@ -54,7 +54,7 @@ function displayForecast(response) {
           <span class="col-2">${forecastDay.temp.max}°C</span>
         </div>
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
-          <span class="col-2"><img src="https://openweathermap.org/img/wn/${forecastDay.data.weather[0].icon}@2x.png" width=50px></img></span>
+          <span class="col-2"><img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width=50px></img></span>
         </div>
         <div class="row d-flex justify-content-center weekDays">
           <span class="col-2">${forecastDay.dt}</span>
@@ -135,5 +135,3 @@ fahrenTemperature.addEventListener("click", displayFahrenTemperature);
 
 let celsTemperature = document.querySelector("#cels-unit");
 celsTemperature.addEventListener("click", displayCelsTemperature);
-
-displayForecast();
