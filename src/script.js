@@ -63,7 +63,7 @@ function displayForecast(response) {
       forecastHTML = ` <div class="row d-flex justify-content-center weeklyTemperatures">
           <span class="col-2">${Math.round(forecastDay.temp.max)}°C</span>
         </div>
-        
+
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
           <span class="col-2"><img src="https://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
@@ -149,3 +149,24 @@ fahrenTemperature.addEventListener("click", displayFahrenTemperature);
 
 let celsTemperature = document.querySelector("#cels-unit");
 celsTemperature.addEventListener("click", displayCelsTemperature);
+
+//locates you and displays data automatically
+
+function changeLocation(position) {
+  console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "58b6c46461e693e538a4d455496c8ce6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showCurrentWeather);
+}
+
+changeLocation();
+
+function getLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(changeLocation);
+}
+
+//end of locate
