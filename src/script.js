@@ -42,23 +42,37 @@ form.addEventListener("submit", pointCity);
 
 //displayForecast function
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
+  console.log(response.data);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
 
-  forecast.forEach(function (forecastDay) {
-    forecastHTML = ` <div class="row d-flex justify-content-center weeklyTemperatures">
-          <span class="col-2">${forecastDay.temp.max}°C</span>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML = ` <div class="row d-flex justify-content-center weeklyTemperatures">
+          <span class="col-2">${Math.round(forecastDay.temp.max)}°C</span>
         </div>
+        
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
-          <span class="col-2"><img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width=50px></img></span>
+          <span class="col-2"><img src="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" width=50px></img></span>
         </div>
         <div class="row d-flex justify-content-center weekDays">
-          <span class="col-2">${forecastDay.dt}</span>
+          <span class="col-2">${formatDay(forecastDay.dt)}</span>
         </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
