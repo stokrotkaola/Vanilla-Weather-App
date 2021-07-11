@@ -56,25 +56,25 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = "";
+  let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
-      forecastHTML = ` <div class="row d-flex justify-content-center weeklyTemperatures">
+      forecastHTML += `<div class="col"> <div class="row d-flex justify-content-center weeklyTemperatures">
           <span class="col-2">${Math.round(forecastDay.temp.max)}°C</span>
         </div>
 
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
-          <span class="col-2"><img src="https://openweathermap.org/img/wn/${
+          <span class="col-2 pictureWeather"><img src="https://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
           }@2x.png" width=50px></img></span>
         </div>
         <div class="row d-flex justify-content-center weekDays">
           <span class="col-2">${formatDay(forecastDay.dt)}</span>
-        </div>`;
+        </div></div>`;
     }
   });
-
+  forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
@@ -162,11 +162,6 @@ function changeLocation(position) {
   axios.get(apiUrl).then(showCurrentWeather);
 }
 
-changeLocation();
-
-function getLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(changeLocation);
-}
+navigator.geolocation.getCurrentPosition(changeLocation);
 
 //end of locate
