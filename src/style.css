@@ -49,6 +49,7 @@ img {
   position: relative;
   top: -20px;
   left: 5px;
+  font-weight: bold;
 }
 .weeklyTemperatures {
   text-align: center;
@@ -78,6 +79,7 @@ img {
 }
 .todaysTemp {
   font-size: 40px;
+  padding-left: 15px;
 }
 .pictureWeather {
   padding: 0px;
@@ -86,8 +88,11 @@ img {
   padding-left: 10px;
 }
 .tempElement {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 .box {
   padding-right: 33px;
+}
+.iconElement {
+  padding-right: 10px;
 }
