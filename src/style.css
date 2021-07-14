@@ -1,5 +1,6 @@
 .container {
   max-width: 50%;
+  min-width: 359px;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(
     179.4deg,
