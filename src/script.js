@@ -51,7 +51,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -61,7 +60,7 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastHTML += `<div class="col"> <div class="row d-flex justify-content-center weeklyTemperatures">
-          <span class="col-2">${Math.round(forecastDay.temp.max)}°C</span>
+          <span class="col-2">${Math.round(forecastDay.temp.max)}°</span>
         </div>
 
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
@@ -81,14 +80,15 @@ function displayForecast(response) {
 //forecast coordinates
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "58b6c46461e693e538a4d455496c8ce6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showCurrentWeather(response) {
+  let city = document.querySelector("#citysName");
+  city.innerHTML = response.data.name;
+
   let todaysTemperature = Math.round(response.data.main.temp);
 
   let h3 = document.querySelector("#todaysTemperature");
@@ -99,17 +99,17 @@ function showCurrentWeather(response) {
   let windSpeed = response.data.wind.speed;
 
   let speedWind = document.querySelector("#windSpeed");
-  speedWind.innerHTML = `${windSpeed}mps`;
+  speedWind.innerHTML = `Wind speed: ${windSpeed}mps`;
 
   let humidity = response.data.main.humidity;
 
   let humidityy = document.querySelector("#humidity");
-  humidityy.innerHTML = `${humidity}%`;
+  humidityy.innerHTML = `Humidity: ${humidity}%`;
 
   let humanPerception = Math.round(response.data.main.feels_like);
 
   let feelsLike = document.querySelector("#feelsLike");
-  feelsLike.innerHTML = `${humanPerception}°C`;
+  feelsLike.innerHTML = `Feels like: ${humanPerception}°`;
 
   let weatherInDetails = response.data.weather[0].main;
 
@@ -125,35 +125,9 @@ function showCurrentWeather(response) {
   getForecast(response.data.coord);
 }
 
-function displayFahrenTemperature(event) {
-  event.preventDefault();
-  celsTemperature.classList.remove("active");
-  fahrenTemperature.classList.add("active");
-  let temperatureElement = document.querySelector("#todaysTemperature");
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-}
-
-function displayCelsTemperature(event) {
-  event.preventDefault();
-  celsTemperature.classList.add("active");
-  fahrenTemperature.classList.remove("active");
-  let temperatureElement = document.querySelector("#todaysTemperature");
-  temperatureElement.innerHTML = celsiusTemperature;
-}
-
-let celsiusTemperature = null;
-
-let fahrenTemperature = document.querySelector("#fahren-unit");
-fahrenTemperature.addEventListener("click", displayFahrenTemperature);
-
-let celsTemperature = document.querySelector("#cels-unit");
-celsTemperature.addEventListener("click", displayCelsTemperature);
-
 //locates you and displays data automatically
 
 function changeLocation(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "58b6c46461e693e538a4d455496c8ce6";
@@ -165,3 +139,5 @@ function changeLocation(position) {
 navigator.geolocation.getCurrentPosition(changeLocation);
 
 //end of locate
+
+pointCity("London");

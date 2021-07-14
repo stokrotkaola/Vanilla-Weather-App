@@ -37,7 +37,6 @@ h2 {
 h3 {
   text-align: center;
   font-size: 30px;
-  padding-left: 40px;
 }
 
 img {
@@ -45,25 +44,11 @@ img {
   margin: 0 auto;
 }
 
-.tempWithTempConverter {
+.tempWithTempUnit {
   font-size: 15px;
   position: relative;
   top: -20px;
   left: 5px;
-}
-.tempConverter {
-  color: white;
-  text-decoration: none;
-}
-.tempConverter:hover {
-  color: #fc6f81;
-  text-decoration: none;
-}
-.divider {
-  color: black;
-}
-.sun-time {
-  font-size: 25px;
 }
 .weeklyTemperatures {
   text-align: center;
@@ -93,11 +78,4 @@ img {
 }
 .todaysTemp {
   font-size: 40px;
-}
-.active {
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  color: black;
 }
