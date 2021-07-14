@@ -44,7 +44,7 @@ img {
   margin: 0 auto;
 }
 
-.tempWithTempUnit {
+.tempUnit {
   font-size: 15px;
   position: relative;
   top: -20px;
@@ -78,4 +78,16 @@ img {
 }
 .todaysTemp {
   font-size: 40px;
+}
+.pictureWeather {
+  padding: 0px;
+}
+.dayElement {
+  padding-left: 10px;
+}
+.tempElement {
+  padding-left: 10px;
+}
+.box {
+  padding-right: 15px;
 }

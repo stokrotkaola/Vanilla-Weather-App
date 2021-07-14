@@ -59,8 +59,12 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
-      forecastHTML += `<div class="col"> <div class="row d-flex justify-content-center weeklyTemperatures">
-          <span class="col-2">${Math.round(forecastDay.temp.max)}°</span>
+      forecastHTML += `
+      <div class="col"> 
+      <div class="row d-flex justify-content-center weeklyTemperatures">
+          <span class="col-2 tempElement">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
         </div>
 
         <div class="row d-flex justify-content-center weeklyTemperaturesIcons">
@@ -69,8 +73,9 @@ function displayForecast(response) {
           }@2x.png" width=50px></img></span>
         </div>
         <div class="row d-flex justify-content-center weekDays">
-          <span class="col-2">${formatDay(forecastDay.dt)}</span>
-        </div></div>`;
+          <span class="col-2 dayElement">${formatDay(forecastDay.dt)}</span>
+        </div>
+        </div>`;
     }
   });
   forecastHTML += `</div>`;
@@ -92,7 +97,7 @@ function showCurrentWeather(response) {
   let todaysTemperature = Math.round(response.data.main.temp);
 
   let h3 = document.querySelector("#todaysTemperature");
-  h3.innerHTML = `${todaysTemperature}°C`;
+  h3.innerHTML = `${todaysTemperature}`;
 
   celsiusTemperature = Math.round(response.data.main.temp);
 
@@ -139,5 +144,3 @@ function changeLocation(position) {
 navigator.geolocation.getCurrentPosition(changeLocation);
 
 //end of locate
-
-pointCity("London");
