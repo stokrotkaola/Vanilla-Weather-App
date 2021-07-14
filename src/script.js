@@ -144,3 +144,11 @@ function changeLocation(position) {
 navigator.geolocation.getCurrentPosition(changeLocation);
 
 //end of locate
+
+function defaultSearch(city) {
+  let apiKey = "58b6c46461e693e538a4d455496c8ce6";
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showCurrentWeather);
+}
+
+defaultSearch("London");
