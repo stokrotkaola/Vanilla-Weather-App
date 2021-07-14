@@ -87,7 +87,7 @@ function getForecast(coordinates) {
 
 function showCurrentWeather(response) {
   let city = document.querySelector("#citysName");
-  city.innerHTML = ${response.data.name;
+  city.innerHTML = response.data.name;
 
   let todaysTemperature = Math.round(response.data.main.temp);
 
