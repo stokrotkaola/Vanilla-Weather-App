@@ -1,13 +1,13 @@
 let now = new Date();
 
 let days = [
-  "SUNDAY",
   "MONDAY",
   "TUESDAY",
   "WEDNESDAY",
   "THURSDAY",
   "FRIDAY",
   "SATURDAY",
+  "SUNDAY",
 ];
 
 let day = days[now.getDay()];
