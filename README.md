@@ -1,6 +1,6 @@
 ## Weather App made for SheCodes Plus ✨
 
-First bigger project made with use of HTML, CSS, Bootstrap, Visual Studio Code and OpenWeatherMap APIs.
+First bigger project made with use of HTML, CSS, Bootstrap, JavaScript, Visual Studio Code and OpenWeatherMap APIs.
 
 You can click [here](https://zen-blackwell-54d68b.netlify.app/) to check out my project!
 
