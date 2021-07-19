@@ -3,26 +3,26 @@
   min-width: 359px;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(
-    179.4deg,
-    rgb(253, 240, 233) 2.2%,
-    rgb(255, 194, 203) 96.2%
+    178deg,
+    rgba(201, 234, 252, 0.51) 14.9%,
+    rgba(139, 192, 216, 0.73) 80%
   );
 }
 .form-control::placeholder {
-  color: #ffc2cb;
+  color: #66b2d4;
 }
 .form-control:focus {
-  border-color: #ffc2cb;
-  box-shadow: 0 0 0 0.2rem #fedadb;
+  border-color: #66b2d4;
+  box-shadow: 0 0 0 0.2rem #dff2fc;
 }
 .searchCityButton {
   background-color: white;
   border-color: white;
-  color: #ffc2cb;
+  color: #66b2d4;
 }
 .searchCityButton:hover {
-  background-color: #ffc7ce;
-  border-color: #ffc7ce;
+  background-color: #66b2d4;
+  border-color: #66b2d4;
   color: white;
 }
 h1 {
@@ -75,7 +75,7 @@ img {
   text-decoration: none;
 }
 .gitHubLink:hover {
-  color: #fc6f81;
+  color: #dff2fc;
   text-decoration: none;
 }
 .todaysTemp {
